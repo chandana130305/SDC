@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ACE e-Book Store - Cart</title>
+   
+    <!-- Favicon Fix -->
+    <link rel="icon" href="ace-icon.png" type="image/png">
+
+    <!-- FontAwesome for Cart Icon -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+
+    <style>
+        /* General Styles */
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            text-align: center;
+            margin: 0;
+            padding: 0;
+        }
+
+        /* Navigation Bar Styling */
+        .navbar {
+            background-color: #333;
+            overflow: hidden;
+            padding: 10px 20px;
+            display: flex;
+            justify-content: space-between; /* Moves cart to the right */
+            align-items: center;
+        }
+
+        .navbar-links {
+            display: flex;
+            gap: 15px;
+        }
+
+        .navbar a {
+            color: white;
+            text-decoration: none;
+            padding: 14px 20px;
+            display: inline-block;
+        }
+
+        .navbar a:hover {
+            background-color: rgb(242, 34, 34);
+        }
+
+        /* Cart Icon Styling */
+        .cart-container {
+            position: relative;
+            display: flex;
+            align-items: center;
+        }
+
+        .cart-icon {
+            color: white;
+            font-size: 22px;
+            margin-left: 5px;
+        }
+
+        #cart-count {
+            background-color: red;
+            color: white;
+            font-size: 12px;
+            border-radius: 50%;
+            padding: 4px 8px;
+            position: absolute;
+            top: -5px;
+            right: -10px;
+        }
+
+        /* Table Styling */
+        table {
+            width: 90%;
+            background-color: #ffe479;
+            margin-top: 20px;
+            border-collapse: collapse;
+        }
+
+        th {
+            background-color: #ff7c5b;
+            padding: 10px;
+            color: white;
+        }
+
+        td {
+            padding: 10px;
+        }
+
+        hr {
+            border: 1px solid #996600;
+        }
+
+        .total {
+            color: #996600;
+            font-weight: bold;
+        }
+
+        /* Pay Button Styling */
+        .pay-button {
+            background-color: #ff7c5b;
+            color: white;
+            border: none;
+            padding: 10px 15px;
+            cursor: pointer;
+            border-radius: 5px;
+        }
+
+        .pay-button:hover {
+            background-color: #ff5722;
+        }
+    </style>
+</head>
+<body>
+
+<!-- Navigation Bar (Cart moved to the right with an icon) -->
+<div class="navbar">
+    <div class="navbar-links">
+        <a href="index.html">Home</a>
+        <a href="catalogue.html">Catalogue</a>
+        <a href="login.html">Login</a>
+    </div>
+    <div class="cart-container">
+        <a href="cart.html">
+            <i class="fas fa-shopping-cart cart-icon"></i>
+            <span id="cart-count">0</span>
+        </a>
+    </div>
+</div>
+
+<!-- Shopping Cart Table -->
+<h3>Shopping Cart</h3>
+<table align="center">
+    <tbody>
+        <tr>
+            <th width="40%"><hr>Book Name<hr></th>
+                        <th width="30%"><hr>Author<hr></th>
+            <th width="15%"><hr>Price<hr></th>
+            <th width="15%"><hr>Action<hr></th>
+        </tr>
+
+        <!-- Sample cart item row -->
+        <tr>
+            <td>Introduction to Algorithms</td>
+            <td>Thomas H. Cormen</td>
+            <td>₹850</td>
+            <td><button onclick="removeItem(this)">Remove</button></td>
+        </tr>
+        <tr>
+            <td>Clean Code</td>
+            <td>Robert C. Martin</td>
+            <td>₹650</td>
+            <td><button onclick="removeItem(this)">Remove</button></td>
+        </tr>
+    </tbody>
+</table>
+
+<!-- Total Amount -->
+<h3 class="total">Total: ₹<span id="total-amount">1500</span></h3>
+
+<!-- Pay Button -->
+<button class="pay-button" onclick="makePayment()">Proceed to Pay</button>
+
+<script>
+    // Function to remove item from cart
+    function removeItem(button) {
+        const row = button.parentElement.parentElement;
+        const price = parseInt(row.children[2].innerText.replace('₹', ''));
+        const totalAmountElement = document.getElementById('total-amount');
+        const currentTotal = parseInt(totalAmountElement.innerText);
+        totalAmountElement.innerText = currentTotal - price;
+
+        row.remove();
+
+        updateCartCount(-1);
+    }
+
+    // Function to update cart count
+    function updateCartCount(change) {
+        const cartCountElement = document.getElementById('cart-count');
+        let count = parseInt(cartCountElement.innerText);
+        count += change;
+        cartCountElement.innerText = count;
+    }
+
+    // Initial cart count setup (based on hardcoded items above)
+    document.getElementById('cart-count').innerText = document.querySelectorAll('tbody tr').length - 1;
+
+    // Function to simulate payment process
+    function makePayment() {
+        alert('Payment Successful!\nThank you for shopping with ACE e-Book Store.');
+        // Redirect or reset cart can be done here
+    }
+</script>
+
+</body>
+</html>
+

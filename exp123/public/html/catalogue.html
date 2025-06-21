@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Catalogue</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+    <header>
+        <h1>Product Catalogue</h1>
+    </header>
+
+    <section class="catalogue">
+        <!-- CSE Books -->
+        <div class="category">
+            <h2>CSE Books</h2>
+            <div class="product">
+                <img src="images/cn.jpg" alt="Computer Networks">
+                <h2>Computer Networks</h2>
+                <p>$10.00</p>
+                <button onclick="addToCart('Computer Networks', 10)">Add to Cart</button>
+            </div>
+            <div class="product">
+                <img src="images/c.jpg" alt="C Programming">
+                <h2>C Programming</h2>
+                <p>$12.00</p>
+                <button onclick="addToCart('C Programming', 12)">Add to Cart</button>
+            </div>
+            <div class="product">
+                <img src="images/java.jpg" alt="Java">
+                <h2>Artificial Intelligence</h2>
+                <p>$20.00</p>
+                <button onclick="addToCart('Java', 20)">Add to Cart</button>
+            </div>
+            <div class="product">
+                <img src="images/wp.jpg" alt="Operating System Concepts">
+                <h2>Operating System Concepts</h2>
+                <p>$18.00</p>
+                <button onclick="addToCart('Operating System Concepts', 18)">Add to Cart</button>
+            </div>
+            <div class="product">
+                <img src="images/wt.jpg" alt="Web Technologies">
+                <h2>Web Technologies</h2>
+                <p>$15.00</p>
+                <button onclick="addToCart('Web Technologies', 15)">Add to Cart</button>
+            </div>
+        </div>
+
+        <!-- IT Books -->
+        <div class="category">
+            <h2>IT Books</h2>
+            <div class="product">
+                <img src="images/let.webp" alt="Let Us C">
+                <h2>Let Us C</h2>
+                <p>$15.00</p>
+                <button onclick="addToCart('Let Us C', 15)">Add to Cart</button>
+            </div>
+            <div class="product">
+                <img src="images/java.jpg" alt="Java Programming">
+                <h2>Java Programming</h2>
+                <p>$20.00</p>
+                <button onclick="addToCart('Java Programming', 20)">Add to Cart</button>
+            </div>
+            <div class="product">
+                <img src="images/py.webp" alt="Python Programming">
+                <h2>Python Programming</h2>
+                <p>$22.00</p>
+                <button onclick="addToCart('Python Programming', 22)">Add to Cart</button>
+            </div>
+            <div class="product">
+                <img src="images/wp.jpg" alt="Data Structures & Algorithms">
+                <h2>Data Structures & Algorithms</h2>
+                <p>$25.00</p>
+                <button onclick="addToCart('Data Structures & Algorithms', 25)">Add to Cart</button>
+            </div>
+        </div>
+
+        <!-- ECE Books -->
+        <div class="category">
+            <h2>ECE Books</h2>
+            <div class="product">
+                <img src="images/ad.jpg" alt="Analog & Digital Communications">
+                <h2>Analog & Digital Communications</h2>
+                <p>$18.00</p>
+                <button onclick="addToCart('Analog & Digital Communications', 18)">Add to Cart</button>
+            </div>
+            <div class="product">
+                <img src="images/at.jpg" alt="Antenna Theory">
+                <h2>Antenna Theory</h2>
+                <p>$14.00</p>
+                <button onclick="addToCart('Antenna Theory', 14)">Add to Cart</button>
+            </div>
+            <div class="product">
+                <img src="images/gate.webp" alt="GATE Study Material">
+                <h2>GATE Study Material</h2>
+                <p>$30.00</p>
+                <button onclick="addToCart('GATE Study Material', 30)">Add to Cart</button>
+            </div>
+        </div>
+
+    </section>
+
+    <script src="cart.js"></script>
+</body>
+</html>
+	
